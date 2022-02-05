@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @shizulot16
-- 👀 I’m interested in ...Coding
-- 🌱 I’m currently learning ...Python
+- 👀 I’m interested in ...Coding&CyberSec
+- 🌱 I’m currently learning ...C Programming
 - 💞️ I’m looking to collaborate on ...Open Source Projects
 - 📫 How to reach me ...
 
