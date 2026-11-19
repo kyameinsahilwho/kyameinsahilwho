@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 110" width="900" height="110" role="img" aria-label="Closing flourish, signed S.">
+<defs>
+  <filter id="grain" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="3" seed="4" stitchTiles="stitch"/>
+    <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 -0.12"/>
+  </filter>
+  <filter id="ink" x="-5%" y="-20%" width="110%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="3" seed="2" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="3.5" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <radialGradient id="paper" cx="0.5" cy="0.45" r="0.75">
+    <stop offset="0" stop-color="#0f0e0c"/><stop offset="1" stop-color="#060505"/>
+  </radialGradient>
+  <linearGradient id="inkFill" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#efdcb0"/><stop offset="0.5" stop-color="#c9a96e"/><stop offset="1" stop-color="#efdcb0"/>
+  </linearGradient>
+  <linearGradient id="ruleL" x1="0" x2="1"><stop offset="0" stop-color="#5a5043" stop-opacity="0"/><stop offset="1" stop-color="#5a5043"/></linearGradient>
+  <linearGradient id="ruleR" x1="0" x2="1"><stop offset="0" stop-color="#5a5043"/><stop offset="1" stop-color="#5a5043" stop-opacity="0"/></linearGradient>
+  <clipPath id="frame"><rect width="900" height="110" rx="6"/></clipPath>
+  
+</defs>
+<g clip-path="url(#frame)">
+  <rect width="900" height="110" fill="url(#paper)"/><rect width="900" height="110" filter="url(#grain)"/>
+  <g filter="url(#ink)">
+    <path d="M 434 44 C 390 22, 350 62, 310 44 S 240 34, 190 44" pathLength="1" fill="none" stroke="#c9a96e" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" begin="0.2s" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/></path><path d="M 466 44 C 510 22, 550 62, 590 44 S 660 34, 710 44" pathLength="1" fill="none" stroke="#c9a96e" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" begin="0.2s" dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/></path>
+    <path d="M 434 44 C 420 58, 402 48, 412 38" pathLength="1" fill="none" stroke="#c9a96e" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" begin="0.1s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/></path><path d="M 466 44 C 480 58, 498 48, 488 38" pathLength="1" fill="none" stroke="#c9a96e" stroke-width="1.3" stroke-linecap="round" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" begin="0.1s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/></path>
+    <g opacity="0"><animate attributeName="opacity" from="0" to="1" begin="0.1s" dur="0.5s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/><path d="M 450 39 L 455 44 L 450 49 L 445 44 Z" fill="#9e2c22"/></g>
+    <path d="M436.75 96.04L436.75 96.04Q434.62 96.04 433.44 95.26Q432.25 94.48 432.25 93.36L432.25 93.36Q432.25 92.50 432.86 92.12Q433.46 91.74 434.07 91.74L434.07 91.74Q434.40 91.74 434.72 91.96Q435.05 92.17 435.05 92.64L435.05 92.64Q435.05 93.01 434.71 93.31Q434.38 93.62 433.93 93.62L433.93 93.62Q433.35 93.62 433.03 93.42L433.03 93.42L433.03 93.52Q433.03 94.38 434.02 94.97Q435.01 95.57 436.43 95.57L436.43 95.57Q438.52 95.57 440.20 94.53Q441.88 93.48 443.31 91.76Q444.73 90.04 446.01 87.95Q447.29 85.86 448.56 83.75L448.56 83.75L448.95 83.11Q445.87 82.99 443.44 82.18Q441.00 81.37 439.65 79.96Q438.29 78.56 438.41 76.70L438.41 76.70Q438.50 74.96 439.66 73.49Q440.81 72.02 442.73 70.93Q444.66 69.85 447.09 69.24Q449.52 68.64 452.19 68.64L452.19 68.64Q453.64 68.64 454.72 68.91Q455.81 69.18 455.81 69.46L455.81 69.46Q455.81 69.54 455.57 69.54L455.57 69.54Q455.44 69.54 455.31 69.51Q455.18 69.48 455.03 69.46L455.03 69.46Q454.40 69.30 453.75 69.19Q453.09 69.09 452.18 69.09L452.18 69.09Q449.91 69.09 447.73 69.66Q445.55 70.24 443.77 71.29Q441.98 72.35 440.90 73.81Q439.81 75.28 439.71 77.07L439.71 77.07Q439.64 78.25 440.64 79.50Q441.65 80.75 443.80 81.63Q445.94 82.50 449.27 82.62L449.27 82.62Q453.93 75.28 457.84 71.96Q461.75 68.64 465.26 68.64L465.26 68.64Q466.43 68.64 467.12 69.26Q467.80 69.89 467.74 71.06L467.74 71.06Q467.66 72.56 466.42 74.44Q465.18 76.31 463.05 78.11Q460.93 79.91 458.15 81.23Q455.38 82.56 452.19 82.97L452.19 82.97Q450.53 85.53 448.82 87.88Q447.10 90.24 445.23 92.07Q443.37 93.91 441.27 94.97Q439.17 96.04 436.75 96.04ZM452.57 82.43L452.57 82.43Q455.38 81.96 457.90 80.68Q460.42 79.40 462.37 77.70Q464.32 76 465.47 74.22Q466.61 72.45 466.69 70.98L466.69 70.98Q466.78 69.93 466.28 69.52Q465.77 69.11 465.24 69.13L465.24 69.13Q462.82 69.20 460.10 72.05Q457.37 74.91 453.95 80.28L453.95 80.28Q453.60 80.82 453.25 81.35Q452.90 81.88 452.57 82.43Z" pathLength="1" fill="url(#inkFill)" fill-opacity="0" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="1" stroke-dashoffset="1" stroke-linejoin="round"><animate attributeName="stroke-dashoffset" from="1" to="0" begin="1.4s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/><animate attributeName="fill-opacity" from="0" to="1" begin="1.73s" dur="0.48s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/><animate attributeName="stroke-opacity" from="1" to="0.25" begin="2s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/></path><path d="M454.40 96.04L454.40 96.04Q453.80 96.04 453.41 95.64Q453.02 95.24 453.02 94.59L453.02 94.59Q453.02 93.79 453.70 93.12Q454.38 92.45 455.34 92.45L455.34 92.45Q456.00 92.45 456.37 92.85Q456.75 93.25 456.75 93.89L456.75 93.89Q456.75 94.73 456.00 95.38Q455.26 96.04 454.40 96.04Z" pathLength="1" fill="url(#inkFill)" fill-opacity="0" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="1" stroke-dashoffset="1" stroke-linejoin="round"><animate attributeName="stroke-dashoffset" from="1" to="0" begin="1.6s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/><animate attributeName="fill-opacity" from="0" to="1" begin="1.93s" dur="0.48s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/><animate attributeName="stroke-opacity" from="1" to="0.25" begin="2.2s" dur="0.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.2 1"/></path>
+  </g>
+</g>
+</svg>
