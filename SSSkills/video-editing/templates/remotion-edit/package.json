@@ -1,0 +1,22 @@
+{
+  "name": "the-24-hour-man-edit",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "studio": "remotion studio src/index.ts --public-dir=public",
+    "render": "remotion render src/index.ts Main ../out/final.mp4 --public-dir=public",
+    "preview": "remotion render src/index.ts Main ../out/preview.mp4 --public-dir=public --scale=0.5 --crf=28"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.544",
+    "@remotion/google-fonts": "4.0.544",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.544"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "tsx": "^4.19.2",
+    "typescript": "5.8.3"
+  }
+}
