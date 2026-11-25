@@ -99,7 +99,7 @@ Concrete values and patterns distilled from the full video catalogues of two UI/
 - One icon library, one stroke weight, one fill style, one corner style, one size grid. One icon per concept everywhere, and never one icon for two concepts. Simpler glyphs at small sizes. [J-06, J-09, J-18, J-19, K-22]
 - Label icons unless they are universal (home, search, bookmark, profile). Don't merge distinct actions into one icon to look minimal. [K-41, J-23]
 - Interactive icons are monochrome; decorative illustration can be richer, in a visually separate zone. [J-01, K-45]
-- Use Lucide, Phosphor or a similar library; never emoji as UI icons. [K-10, K-23]
+- Use Lucide, Phosphor or a similar library for universal concepts; never emoji as UI icons. [K-10, K-23] Draw custom icons to the library's exact spec for product-specific concepts and stateful icons that carry real data (spec, template and example in premium-craft.md §5).
 - Use real product screenshots, cropped to the part that matters, optionally tilted slightly or popped out with a shadow; never generic stock that doesn't show the product. Imagery is large where the user needs to judge (food, products, portfolios). [K-07, K-10, K-15, J-04, K-52]
 - Guarantee contrast for controls over images (a scrim or a backing circle). [K-21]
 - Subtle grain: an SVG `feTurbulence` (`fractalNoise`, high `baseFrequency`) layer at low opacity on `body::before`, not a PNG. [J-44]
@@ -176,5 +176,6 @@ Run through this list before calling a screen done:
 10. Are any of the vibe-coded tells from SKILL.md calibration trait 6 present?
 11. Is it aligned to the grid, with no nested containers?
 12. Is the work checked at real size on desktop and phone?
+13. Has the premium-craft.md §10 checklist been run (state matrix, one pattern per situation, break-it pass, custom icons, signature details, flow briefs)?
 
-These come from J-09's review criteria (onboarding, intrusiveness, customization, navigation, clutter, consistency, features), K-20's five-second test, and K-45's advice on viewing at real size.
+Items 1–12 come from J-09's review criteria (onboarding, intrusiveness, customization, navigation, clutter, consistency, features), K-20's five-second test, and K-45's advice on viewing at real size.

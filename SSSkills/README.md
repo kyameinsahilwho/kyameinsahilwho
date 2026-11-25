@@ -19,7 +19,7 @@ Each folder is a self-contained skill with a `SKILL.md`. Copy a folder into `~/.
 - **17 video sub-guides behind one skill.** `3d-ai-video-edit` routes to FFmpeg, Remotion, moviepy, Blender, ElevenLabs, ACE-Step, LTX-2, Ideogram 4, Qwen-Image-Edit, RunPod and more, and Claude reads only the guide the task needs.
 - **12 hard production rules for video edits.** `video-editing` never cuts inside a word, adds 30 ms audio fades at every cut and burns subtitles last, backed by 13 Python and Node helper scripts.
 - **Edits video without an API key.** When no ElevenLabs key is set, `video-editing` falls back to local faster-whisper transcription with the same JSON shape.
-- **UI audits with a scorecard.** `frontend-design` scores an interface from 1 to 10 in 6 categories from real screenshots (light and dark, desktop and phone) and keeps iterating until every category reaches 9.5.
+- **UI audits with a scorecard.** `frontend-design` scores an interface from 1 to 10 in 7 categories from real screenshots (light and dark, desktop and phone) and keeps iterating until every category reaches 9.5.
 - **A Windows Rust playbook from two shipped apps.** `rusty-apps` was written while building the Platter disk utility and the MAX File Recovery app: an 11-step playbook, 10 reference files, Rust templates that compile together as a Tauri app shell, and screenshot and launch-benchmark scripts.
 - **Upstream credited and licenses kept.** The table below credits each skill's upstream source, and upstream license files are kept in the skill folders. `rusty-apps` is original to this collection.
 
@@ -39,11 +39,15 @@ Each folder is a self-contained skill with a `SKILL.md`. Copy a folder into `~/.
 
 **Triggers when** you ask Claude to build a new page or component, restyle an existing UI, pick a palette or type scale, or audit and polish a dashboard, editor or admin panel.
 
-- Plans a compact token system first (4 to 6 role-named colors, type scale, layout, flow), reviews it against the brief, then builds.
+- Plans a compact token system first (4 to 6 role-named colors, type scale, layout, point of view, flow, custom parts), reviews it against the brief, then builds.
+- Treats premium craft as core, not polish: every state designed (what just happened, undo, what's next), one pattern per recurring situation across screens, and failure states that carry the fix inline.
+- Makes the product's own parts: custom SVG icons drawn to the icon library's exact spec for product-specific concepts and live-data icons, one or two signature details, and flows built from the user's job with no dead ends.
 - Calls out the common "generated UI" defaults by name (cream background with terracotta accent, SaaS card kit, emoji as icons, four KPI cards on every page) so Claude avoids them unless the brief asks for them.
-- Product UI audit covers hierarchy and typography, containers and radii, color and affordance, theme contrast, layout balance, and flows, states and information architecture.
-- Screenshot-verified hill-climbing: score 6 categories, fix the lowest, re-screenshot, repeat until each scores 9.5/10 or higher.
+- Product UI audit covers hierarchy and typography, containers and radii, color and affordance, theme contrast, layout balance, flows, states and information architecture, and coherence, recovery and custom parts.
+- Editor pass before calling it done: break it on purpose (network off mid-flow, failed payment, empty lists), walk the whole journey as a real user, push past the first acceptable result.
+- Screenshot-verified hill-climbing: score 7 categories (failure, empty and limit states included), fix the lowest, re-screenshot, repeat until each scores 9.5/10 or higher.
 - Adds `references/ui-craft.md`: a 12-section rule set with concrete numbers (type scales, line heights, color ramps, dark mode, spacing, mobile touch targets), each rule traced to a video id from the @juxtopposed (J-01 to J-44) and @kolejain (K-01 to K-54) catalogues.
+- Adds `references/premium-craft.md`: an 11-state matrix, coherence audit, failure-recovery recipe, custom icon spec with an SVG template and a live-date calendar icon, signature details, and a flow brief template, distilled from Tim Gabe's "The Psychology of Premium Apps" and Katie Dill's (Stripe) "How to scale intent, quality, and artistry with AI", with timestamps.
 
 ### ✂️ video-editing
 
@@ -132,7 +136,7 @@ Claude Code reads the `name` and `description` from each `SKILL.md` frontmatter 
 
 ```
 SSSkills/
-├── frontend-design/     SKILL.md, references/ui-craft.md, LICENSE.txt
+├── frontend-design/     SKILL.md, references/ (ui-craft.md, premium-craft.md), LICENSE.txt
 ├── video-editing/       SKILL.md, install.md, helpers/, templates/remotion-edit/, skills/manim-video/, LICENSE
 ├── 3d-ai-video-edit/    SKILL.md, 17 sub-guide folders, LICENSE-video-toolkit
 ├── rusty-apps/          SKILL.md, references/ (10 files), assets/templates/, scripts/
@@ -176,7 +180,7 @@ They are written for Claude Code. The `video-editing` install notes also cover r
 
 ### Where do these skills come from?
 
-Three are based on open-source upstream skills: Anthropic's frontend-design, Browser Use's video-use and Digital Samba's claude-code-video-toolkit, with their license files kept in each folder. find-skills comes from Vercel Labs' skills repo. The additions (UI craft reference, audit scorecard, extra video helpers and the Remotion edit template) were written for this collection. `rusty-apps` is fully original: it was written while building [Platter](https://github.com/kyameinsahilwho/platter) and [MAX File Recovery](https://github.com/kyameinsahilwho/ReincarnateMax), two Windows apps in Rust.
+Three are based on open-source upstream skills: Anthropic's frontend-design, Browser Use's video-use and Digital Samba's claude-code-video-toolkit, with their license files kept in each folder. find-skills comes from Vercel Labs' skills repo. The additions (UI craft and premium craft references, audit scorecard, extra video helpers and the Remotion edit template) were written for this collection. `rusty-apps` is fully original: it was written while building [Platter](https://github.com/kyameinsahilwho/platter) and [MAX File Recovery](https://github.com/kyameinsahilwho/ReincarnateMax), two Windows apps in Rust.
 
 ## Part of CodingMarvel
 

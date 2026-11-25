@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, color systems, layout, component states, and UX flows, and with making choices that don't read as templated or vibe-coded defaults. Also covers auditing and polishing existing product UI against core design system standards (type scale, radii, affordance, theme contrast, task flow) with screenshot-verified hill-climbing.
+description: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, color systems, layout, component states, and UX flows, and with making choices that don't read as templated or vibe-coded defaults. Treats premium craft as core: every state designed (undo, status, error recovery), one coherent pattern per situation across screens, custom icons for the product's own concepts, signature details, and logical, practical user flows. Also covers auditing and polishing existing product UI against core design system standards (type scale, radii, affordance, theme contrast, task flow) with screenshot-verified hill-climbing.
 license: Complete terms in LICENSE.txt
 ---
 
@@ -10,13 +10,33 @@ Approach this as the design lead at a design studio known for giving every clien
 
 Be distinctive in identity, conventional in mechanics. Color, type, shape, imagery and motion are where a design earns its personality. Where controls sit, what they look like they do, and how they behave are where it follows convention: title at the top, navigation where people expect it, radio buttons for one choice, checkboxes for many, a back button that goes back. Novelty belongs in the details, not in moving the furniture.
 
-For the concrete numbers behind the rules below (type scales, color ramps, spacing, shadows, component recipes, interaction and IA patterns), read [references/ui-craft.md](references/ui-craft.md) before building or auditing anything non-trivial.
+For the concrete numbers behind the rules below (type scales, color ramps, spacing, shadows, component recipes, interaction and IA patterns), read [references/ui-craft.md](references/ui-craft.md) before building or auditing anything non-trivial. For premium craft — the state matrix, coherence audit, failure recovery, the custom icon spec and template, signature details, and flow briefs — read [references/premium-craft.md](references/premium-craft.md) before building any product UI or multi-screen flow.
 
 ## Ground your designs in the subject matter
 
 If the brief does not identify what the product or subject matter is, identify it yourself before designing, and confirm with the client. You can come up with one concrete subject, the design's audience, and the design's primary job, as a proposal. If there's any information in your memory about the client's preferences or context about what they're building, use that as a hint. The subject's industry, subject matter, materials, and vernacular are where distinctive visual choices come from — a design for a toy for girls aged 8–11 will be very aesthetically different from a dashboard for financial analysts. Build with the brief's real content and subject matter throughout: real product screenshots, real names, real numbers, imagery from the subject's world. A restaurant tool that shows no food, or a landing page with no picture of the product, reads as soulless however polished it is.
 
 Before laying anything out, answer four questions about the person using it: why do they open this, what are they trying to get done, what will they want to know next, and what are you willing to leave out? Map the path from arrival to that goal and make every screen serve it; everything else is a side quest. For every element you add, be able to say why it is there for this user. Copying how a known product looks without knowing why it looks that way is how generated UI goes wrong.
+
+## Premium is evidence, not polish
+
+Anyone with an AI tool can now ship screens that look decent, so decent is the floor — the commodity ceiling every product has to clear. The look gets a product picked; evidence that it is good gets it called premium, and people keep quiet score of that evidence. The evidence lives in the unglamorous work generators skip, which only shows in use. Treat it as a core part of every design, not end-of-project polish:
+
+1. **Every state, not just the happy screen.** Generated UI explains its design reasoning confidently and then leaves about a quarter of it out of the interface ("design theater"); what gets dropped is system status, undo, and recovery. After every action the user knows what just happened, can take it back, and knows what to do next. Never answer an action with nothing: a mic test too short to count still shows the level it heard and how long to record next time.
+2. **One product, not 80 screens.** People live in a product for months and see screen 80 beside screen 1. Screens generated one at a time each look fine alone and quietly disagree, and users underreport the cost: they slow down without saying so. The same situation gets the same pattern, words and component everywhere, with specific facts over generic messages: two different "out of sessions" screens become one pattern with a "2 of 2 sessions used" count and the exact date they refresh.
+3. **The worst moment, designed best.** A failure handled well can leave people happier than if nothing had gone wrong (the service recovery paradox), and one bad experience is enough for about a third of people to leave. Design the declined payment, the dropped connection, the empty list, the expired session as carefully as the success screen: say specifically what happened and what's safe, put the fix right there (a declined card shows "check your balance" and a contact-support button in the alert), and keep the user's input and place.
+
+**Have a point of view, or the model supplies the most probable one.** LLMs return what has been popular, not what is specific to this brand and these users — a Korean barbecue restaurant whose site looks like a software company. Before designing, write down who the product wants to be to its users, what they care about, and one or two qualities that decide details big and small (Stripe's is optimism: it shows in colors, copy, and what ships). Hold anything made with AI to the same bar as anything else: users only care whether it is good. Aim one level deeper than the user will consciously notice; that care is what they sense.
+
+## Make it the product's own: custom icons, signature details, flows
+
+Library components and icon sets are the floor everyone shares. The parts that show someone cared are made for this product, so treat them as core deliverables of the first build, not optional polish.
+
+- **Custom icons for the product's own concepts.** Use the library (Lucide, Phosphor or similar) for universal concepts: search, close, menu, settings, home. Draw custom SVG icons for the nouns and verbs only this product has (a session credit, a mic test, a top-up, a recipe step, a held shipment), for stateful icons that carry real data (a calendar showing today's date, a credit icon showing what's left), and for empty- and error-state illustrations. Draw them to the library's exact grid, stroke, cap and corner spec so they sit unnoticed beside stock icons, use one metaphor from the subject's world, and make sure they read at 16px. A custom icon earns its place by making a concept faster to recognize; it is never decoration, a colored tile, or an emoji stand-in. Spec, template and a stateful example are in [references/premium-craft.md](references/premium-craft.md) §5.
+- **Signature details.** Pick one or two moments where the product's point of view becomes tangible: the most frequent moment, the worst moment, or a place where real data can appear in the chrome. Craft those: a small bit of life on the product's own mark, the exact refresh date on a limit, an offline state worth playing with, a support button inside the decline alert. Tie them together with one recurring theme so they read as one maker's hand. Test each one by removing it: if nobody would miss it, it was decoration; if it could appear unchanged in any other product, it isn't a signature.
+- **Custom flows.** Design flows from the user's job, not from a screen inventory or a template. For each core flow, write the job, the trigger, what can be prefilled from context, the goal, one primary action per step, every failure branch, the next need after the goal, and the shortest path for a returning user. Remove steps that exist only because the system needs them. Leave no dead ends: every screen has a way back, a skip where skipping is safe, and a plain way out. Anticipate what comes next: suggest the logical next step after creating something, warn with the count before a limit, carry the fix at a failure. A flow is practical when a first-time user finishes it without help and a daily user finishes it without friction.
+
+Where the standard pattern serves the subject's job badly, invent the interaction it actually needs (direct manipulation, live preview, a generative or responsive view) rather than defaulting to chat, cards, or charts, and keep basic controls conventional. AI lowers the cost of building: spend some of the savings on something special, not only on making the usual thing faster.
 
 ## Design principles
 
@@ -59,16 +79,24 @@ Work in two passes. First, brainstorm a short design plan based on the client's 
 - Color: describe the core base palette as 4–6 named hex values, named by role (background, surface, text, primary, accent, plus semantic success/warning/danger) rather than by hue. Derive each role's tints and shades as a ramp (OKLCH keeps hue and perceived lightness steady; HSL drifts), and plan the dark palette as its own set, not an inversion. Pull the palette from the subject or brand, not from a generator.
 - Type: the typefaces and their roles, and the scale ratio (tighter for dense UI, wider for editorial).
 - Layout: a layout concept, using one-sentence prose descriptions and ASCII wireframes to ideate and compare. Include alignment guidance; should the content be left aligned, center aligned, justified? Let the content choose the layout: one big statement wants space and centering, many parallel features may want a grid, a long read wants a single narrow column. Vary section structure down a page instead of alternating image-left/text-right throughout.
-- Flow: for product UI, the main user path, the primary action on each screen, and the states each screen needs (loading, empty, error, success).
+- Point of view: who the product wants to be to its users, what they care about, and the one or two qualities that will decide details.
+- Flow: for product UI, a flow brief per core flow (job, trigger, steps with one primary action each, failure branches, next need, returning-user path) and the state matrix for each screen: first use, loading, partial, success, no results, recoverable and blocking error, offline, limit reached, no permission, expired. Name the one pattern each recurring situation will use across every screen.
+- Custom parts: the product-specific concepts that get custom icons (and which stay on the library), the stateful icons that will show real data, and the one or two signature details and where they live.
 - Principles: the high-level guidance for what makes this page unique.
 
 Then review that plan against the brief before building: if any part of it reads like the generic default you would produce for any similar page (work through a similar prompt to see if you arrive somewhere similar) rather than a choice made for this specific brief — revise that part, say what you changed and why. Only after you've confirmed the relative uniqueness of your design plan should you start to write the code, following the revised plan.
 
-When writing the code, be careful of structuring your CSS selector specificities. It's easy to generate CSS classes that cancel each other out (especially with a type-based selector like .section and an element-based selector like .cta). This can happen often with padding/margin between sections. Keep colors and measurements as tokens (CSS custom properties), use an icon library (Lucide, Phosphor, or similar) rather than emoji, and prefer CSS over heavy JavaScript, WebGL or 3D for effects; slow pages lose visitors before any design is seen.
+When writing the code, be careful of structuring your CSS selector specificities. It's easy to generate CSS classes that cancel each other out (especially with a type-based selector like .section and an element-based selector like .cta). This can happen often with padding/margin between sections. Keep colors and measurements as tokens (CSS custom properties). Use an icon library (Lucide, Phosphor, or similar) for universal concepts and custom SVG icons drawn to the same spec for the product's own concepts, never emoji; keep custom icons, recurring state patterns and the point-of-view brief in one reusable place (an icons module, a patterns file, a short DESIGN.md) so later screens and other builders inherit them instead of reinventing them. Prefer CSS over heavy JavaScript, WebGL or 3D for effects; slow pages lose visitors before any design is seen.
 
 ## Restraint and self-critique
 
 Spend your boldness in one place. Let one element be the memorable thing, keep everything around it quiet and disciplined, and cut any decoration that does not serve the brief. Restraint limits the number of unrelated effects, not the amount of personality: a design can be colorful, dense, or playful and still be restrained. Build to a quality floor without announcing it: responsive down to mobile, visible keyboard focus, reduced motion respected, visually accessible, harmonious color palettes. Every interactive control gets hover, pressed, focus and disabled states; it's decorative motion on non-interactive things that reads as generic. Critique your own work as you build, taking screenshots to review if your environment supports it — a picture is worth 1000 tokens. View at real size on the target viewport (around 1440–1920 wide for desktop, 390 for phone), not a zoomed-out canvas, and apply a five-second test: can someone get what this is and what to do from a quick scroll? Consider Chanel's advice: before leaving the house, take a look in the mirror and remove one accessory. Human creatives have memory and always try to do something new, so if you have a space to quickly jot down notes about what you've tried, it can help you in future passes.
+
+Built isn't done, and done isn't good: a design can satisfy every rule here and still be dead. Before calling product UI finished, do an editor pass as a real user:
+- **Break it on purpose.** Turn off the network mid-flow, fail a payment, empty every list, deny permissions, use the longest real content, double-submit, press back mid-flow, let the session expire. Design each resulting state as carefully as the success screen.
+- **Walk the whole journey.** Use the product for a stretch as a real user would, on real data. Note every spot where it stops feeling like the same product, and fix the pattern rather than just the spot.
+- **Ask the editor's questions.** Does it actually solve the problem? Does it match how the user thinks? Is it coherent end to end? Is it fully formed? Can you give a reason for every choice, or is the cup green when it might as well have been blue?
+- **Push past the first acceptable result.** Stripe's opening animation took 56 iterations. Where your environment allows, get an adversarial critique from a subagent or a fresh pass, but the push for better stays yours.
 
 ## More on writing in design
 
@@ -102,7 +130,7 @@ Use this section when auditing, polishing, or restyling an existing application 
    - Do not produce a sterile, fully monochrome/grayscale interface. Product UI is mostly neutral (closer to 90/8/2 than 60/30/10), and color is reserved for meaning: the primary action, selection, status, and data.
    - Primary interactive triggers (Submit, Confirm, Merge, the primary action) clearly read as buttons, with a distinct accent color and visible hover/focus states. One primary per view; secondary actions are outline or ghost. In a destructive confirmation, the destructive action is red and the safe one is quiet.
    - Distinctly differentiate disabled, resting, hover, active, and focused states. Inputs also need error and focus states; async buttons need a loading state. Icon-only buttons get tooltips.
-   - Icons come from one library with one stroke weight and style, one icon per concept, uncolored unless they show status. No emoji as icons.
+   - Icons form one visual system: a library for universal concepts plus custom icons drawn to its grid, stroke and corner style for the product's own concepts. One icon per concept, uncolored unless they show status. No emoji as icons.
 
 4. **Theme contrast & readability**
    - Verify dark and light themes independently. Dark is its own palette, not an inversion: surface steps roughly twice as large as in light mode, elevation shown by lighter surfaces (shadows don't read on dark), accents lightened and desaturated, body text off-white rather than pure white. Avoid washed-out surfaces, pure #000 backgrounds, and a pure #FFF canvas with no layering. Pure white is fine as a card or input layer on a slightly tinted background.
@@ -121,17 +149,24 @@ Use this section when auditing, polishing, or restyling an existing application 
    - Order navigation and menus by frequency of use, keep that order in every context, and put rare actions under More. Related records link to each other (names, owners, projects are links). Choose the container by task: popover for quick non-blocking edits, modal for focused tasks tied to the page, a full page for large or lasting content.
    - Settings are grouped into a few clear categories, basic before advanced, each with a one-line plain description; child options hide when their parent is off. Toggles for on/off, radios for one-of, checkboxes for many.
 
+7. **Coherence, recovery & custom parts** (details in [references/premium-craft.md](references/premium-craft.md))
+   - Run the coherence audit: list each recurring situation (limit, empty, error, confirmation, success, paywall, permission) and every screen where it appears, then merge the variants into one pattern with specific counts, dates and a next step.
+   - Run the break-it pass on every core flow. Each failure says what happened and what's safe, carries the fix inline (with a route to a person where money or data is at stake), and keeps the user's input and place.
+   - Replace generic or misleading library glyphs on product-specific concepts with custom icons drawn to the library's spec. Check the whole set together at 16, 20 and 24px in both themes.
+   - Identify the product's signature details. If there are none, add one or two where its point of view can become tangible (a frequent moment, the worst moment, or real data in the chrome).
+
 ### Phase 2: Autonomous hill-climbing with screenshot verification
 
 1. Spin up the local development preview.
 2. Capture full-resolution screenshots of the primary application surfaces before and after changes, in both light and dark themes, at desktop and phone widths.
 3. If reference screenshots of benchmark products (e.g. Linear, Cursor) are provided, compare your screenshots directly against them.
-4. Score the interface from 1 to 10 in each of these 6 categories, with a one-line justification per score:
+4. Score the interface from 1 to 10 in each of these 7 categories, with a one-line justification per score:
    - **Typography & Hierarchy**
    - **Spacing, Radii & Component Consistency**
    - **Contrast, Theming & Readability**
    - **Color & Interactive Affordance**
    - **Visual Clarity & Noise Reduction**
    - **Flows, States & Information Architecture**
-5. Identify the lowest-scoring aspects, implement concrete code fixes, take fresh screenshots, and re-evaluate. Check the vibe-coded tells in calibration trait 6 explicitly; each one present caps Visual Clarity at 8.
+   - **Coherence, Recovery & Care** (one pattern per situation, designed failure states, custom icons and signature details)
+5. Identify the lowest-scoring aspects, implement concrete code fixes, take fresh screenshots, and re-evaluate. Screenshot the failure, empty and limit states too, not only the happy path. Check the vibe-coded tells in calibration trait 6 explicitly; each one present caps Visual Clarity at 8. Any core flow with an undesigned failure state, or one situation shown with two different patterns, caps Coherence, Recovery & Care at 7.
 6. Continue iterating until every category scores **9.5/10 or higher**. Report the score table for each iteration so progress is visible.
